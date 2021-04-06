@@ -1,0 +1,78 @@
+<div class="register-container">
+    <div class="register-block col-lg-6 offset-md-2 offset-lg-3">
+        <p class="header">Seller Registration Page</p>
+        <br>
+        <form #registerForm="ngForm" (ngSubmit)="submitRegisterForm(registerForm.value)" novalidate>
+
+            <div class="input-container">
+                <input type="text" name="storeName" #storeName="ngModel" ngModel required>
+                <label>Store Name</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="sellerName" #sellerName="ngModel" ngModel required>
+                <label>Seller Name</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="houseNo" #houseNo="ngModel" ngModel required>
+                <label>House Number</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="street" #street="ngModel" ngModel required>
+                <label>Street</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="city" #city="ngModel" ngModel required>
+                <label>City</label>
+            </div>
+
+            <div class="input-container">
+                <input type="number" name="pincode" #pincode="ngModel" ngModel required>
+                <label>Pincode</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="state" #state="ngModel" ngModel required>
+                <label>State</label>
+            </div>
+
+            <div class="input-container">
+
+                <input list="Countries" name="country" id="country" #country="ngModel" style="width: 100px;" ngModel
+                    required>
+
+                <datalist id="Countries">
+                    <option value="{{country.name}}" *ngFor="let country of countriesList">{{country.name}}</option>
+                </datalist>
+                <label>Country</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="emailId" #emailId="ngModel" ngModel required>
+                <label>Email Id</label>
+            </div>
+
+
+            <div class="input-container">
+                <input type="number" name="phoneNumber" #phoneNumber="ngModel" minlength="10" ngModel required>
+                <label>Phone Number</label>
+            </div>
+
+
+            <div class="input-container">
+                <input type="text" name="loginId" #loginId="ngModel" minlength="4" ngModel required>
+                <label>Login Id</label>
+            </div>
+
+            <div class="input-container">
+                <input type="password" id="password" name="password" #password="ngModel" ngModel required minlength="8">
+                <label for="password">Password</label>
+            </div>
+
+            <button class="btn btn-outline-success" [disabled]="!registerForm.valid">Register</button>
+        </form>
+    </div>
+</div>

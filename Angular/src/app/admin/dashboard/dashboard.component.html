@@ -1,0 +1,46 @@
+<p class="title" style="text-align:center;margin: 40px 0;">WELCOME TO ADMIN PAGE</p>
+<div class="store-container">
+ <p class="sub-title">Need To Be Updated Stores</p>
+ <table class="table table-hover">
+  <thead class=" thead-dark">
+   <tr class="bg-info text-white" align="center">
+    <th scope="col">Store ID</th>
+    <th scope="col">Store Name</th>
+    <th scope="col">Seller Name</th>
+    <th scope="col">Store Status</th>
+    <th></th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor='let store of notWorkingStoresList' align="center">
+    <th scope="row">{{store.storeId}}</th>
+    <td>{{store.sellerName}}</td>
+    <td>{{store.storeName}}</td>
+    <td>{{store.status}}</td>
+    <td><a href=""><u>Edit</u></a></td>
+   </tr>
+  </tbody>
+ </table>
+
+ <p class="sub-title" style="margin-top: 60px;">Working Stores</p>
+ <table class="table table-hover">
+  <thead class=" thead-dark">
+   <tr class="bg-info text-white" align="center">
+    <th scope="col">Store ID</th>
+    <th scope="col">Store Name</th>
+    <th scope="col">Seller Name</th>
+    <th scope="col">Store Status</th>
+    <th></th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor='let store of workingStoresList' align="center">
+    <th scope="row">{{store.storeId}}</th>
+    <td>{{store.sellerName}}</td>
+    <td>{{store.storeName}}</td>
+    <td>{{store.status}}</td>
+    <td><a href=""><u>Edit</u></a></td>
+   </tr>
+  </tbody>
+ </table>
+</div>

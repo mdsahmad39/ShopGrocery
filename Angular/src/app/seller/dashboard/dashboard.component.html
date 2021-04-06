@@ -1,0 +1,180 @@
+<section class="container">
+  <div id="addProductModel" class="modal fade">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal"><i class="fa fa-times-circle"></i></button>
+        </div>
+
+        <div class="modal-body">
+          <form #registerForm="ngForm" novalidate>
+            <input class="form-control" type="text" name="productName" placeholder="Product Name..."
+              [(ngModel)]="addProduct.productName" ngModel required>
+            <br>
+            <input class="form-control" type="text" name="category" placeholder="Category..."
+              [(ngModel)]="addProduct.category" ngModel required>
+            <br>
+            <input class="form-control" type="text" name="brand" placeholder="Brand..." [(ngModel)]="addProduct.brand"
+              ngModel required>
+            <br>
+            <input class="form-control" type="text" name="description" placeholder="Description..."
+              [(ngModel)]="addProduct.description" ngModel required>
+            <br>
+            <input class="form-control" type="number" name="weight" placeholder="Weight..."
+              [(ngModel)]="addProduct.weight" ngModel required>
+            <br>
+            <input class="form-control" type="number" name="availableQuantity" placeholder="Available Quantity..."
+              [(ngModel)]="addProduct.availableQuantity" ngModel required>
+            <br>
+            <input class="form-control" type="number" name="price" placeholder="Price..." [(ngModel)]="addProduct.price"
+              ngModel required>
+            <br>
+            <input class="form-control" type="date" name="createdDate" placeholder="Created date..."
+              [(ngModel)]="addProduct.createdDate" ngModel required>
+            <br>
+            <input class="form-control" type="date" name="expiryDate" placeholder="Expiry date..."
+              [(ngModel)]="addProduct.expiryDate" ngModel required>
+            <br>
+
+            <label for="uploadImage">upload image</label>
+            <input class="form-control" type="file" #productImage accept="image/*" (change)="onSelectFile($event)"
+              name="uploadImage">
+            <button type="submit" class="button btn-light rounded" (click)="onAddUpload()">upload</button>
+            <div *ngIf="show"><img [src]="imageurl" style="height: 150px;width: 200px;"></div>
+            <br>
+
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button (click)="sendAddProductQuery()" class="btn btn-default" data-dismiss="modal">Add Product</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="productModel" class="modal fade">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal"><i class="fa fa-times-circle"></i></button>
+        </div>
+
+        <div class="modal-body">
+          <form #registerForm="ngForm" novalidate>
+
+            <label for="productId" class="text-uppercase">Product Id:</label>
+            <input class="form-control" type="number" name="productId" [(ngModel)]="editProduct.productId" ngModel
+              readonly>
+            <br>
+
+            <label for="productName" class="text-uppercase">Product Name:</label>
+            <input class="form-control" type="text" name="productName" [(ngModel)]="editProduct.productName" ngModel
+              readonly>
+            <br>
+
+            <label for="category" class="text-uppercase">Category:</label>
+            <input class="form-control" type="text" name="category" [(ngModel)]="editProduct.category" ngModel required>
+            <br>
+
+            <label for="brand" class="text-uppercase">Brand:</label>
+            <input class="form-control" type="text" name="brand" [(ngModel)]="editProduct.brand" ngModel required>
+            <br>
+
+            <label for="description" class="text-uppercase">Description:</label>
+            <input class="form-control" type="text" name="description" [(ngModel)]="editProduct.description" ngModel
+              required>
+            <br>
+
+            <label for="weight" class="text-uppercase">Weight:</label>
+            <input class="form-control" type="number" name="weight" [(ngModel)]="editProduct.weight" ngModel required>
+            <br>
+
+            <label for="availableQuantity" class="text-uppercase">Available Quantity:</label>
+            <input class="form-control" type="number" name="availableQuantity"
+              [(ngModel)]="editProduct.availableQuantity" ngModel required>
+            <br>
+
+            <label for="price" class="text-uppercase">Price:</label>
+            <input class="form-control" type="number" name="price" [(ngModel)]="editProduct.price" ngModel required>
+            <br>
+
+            <label for="createdDate" class="text-uppercase">Manufacture Date:</label>
+            <input class="form-control" type="text" name="createdDate" [(ngModel)]="editProduct.createdDate" ngModel
+              required>
+            <br>
+
+            <label for="expiryDate" class="text-uppercase">Expiry Date:</label>
+            <input class="form-control" type="text" name="expiryDate" [(ngModel)]="editProduct.expiryDate" ngModel
+              required>
+            <br>
+
+            <label for="store" class="text-uppercase">Store Name:</label>
+            <input class="form-control" type="text" name="store" [(ngModel)]="editProduct.store.storeName" ngModel
+              readonly>
+            <br>
+
+            <label for="orderDetails" class="text-uppercase">Order Details:</label>
+            <input class="form-control" type="text" name="orderDetails" [(ngModel)]="editProduct.orderDetails" ngModel
+              readonly>
+            <br>
+
+            <label for="uploadImage" class="text-uppercase">upload product image</label>
+            <input class="form-control" type="file" #productImage accept="image/*" (change)="onSelectFile($event)"
+              name="uploadImage">
+            <button type="submit" class="button btn-light rounded" (click)="onUpload()">upload</button>
+            <div *ngIf="show"><img [src]="imageurl" style="height: 150px;width: 200px;"></div>
+            <br>
+
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button (click)="updateProduct()" class="btn btn-default" data-dismiss="modal">Update Product</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <p style="text-align: center; margin-top: 70px;margin-bottom: 50px;"><span class="title">My Products</span><button
+      style="all:unset;cursor:pointer;margin-left: 10px;" (click)="addProductToDB()"><u>+Add Product<i
+          class="far fa-edit" style="margin-left: 3px;"></i></u></button></p>
+  <!-- <div class="input-group" style="margin-top: 50px;">
+    <div class="form-outline offset-lg-5">
+      <input id="search-input" placeholder="Search for products..." type="search" id="form1" class="form-control"
+        [(ngModel)]="productName" />
+    </div>
+    <button (click)="getProductByName()" id="search-button" type="button" class="btn btn-primary">
+      <i class="fas fa-search"></i>
+    </button>
+  </div> -->
+  <div class="row" style="margin-top: 4px">
+    <div class="col-md-3" *ngFor="let product of productsList" style="margin-top:15px;margin-bottom: 30px;">
+      <div class="product-card hvr-underline-from-center">
+        <div class="cart-body" style="margin:5px;">
+          <img class="card-img-top" src="http://localhost:8090//productImage//{{product.fileName}}" alt="Card Image" />
+          <p><strong>{{product.productName}}</strong> <span style="float: right; margin-right: 10px;"><strong>Brand:
+              </strong>
+              {{product.brand}}</span></p>
+          <p class="card-text"> <strong>Category: </strong> {{product.category}}</p>
+          <p class="card-text"><strong> Price: </strong>{{product.price |
+            currency:'INR'}} </p>
+        </div>
+        <div class="row">
+          <div>
+            <button type="button" class="btn btn-outline-info" (click)=showEditPopup(product)
+              style="float: right; margin-right: 5px;">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

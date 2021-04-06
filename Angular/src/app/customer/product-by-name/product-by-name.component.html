@@ -1,0 +1,29 @@
+<section class="products-container">
+ <h3 style="text-align: center;margin-top: 25px;"><strong>Products Available in Store : <span
+    style="text-transform: uppercase;"><strong>{{store.storeName}}</strong></span></strong>
+ </h3>
+ <div class="row" style="margin-top: 4px">
+  <div class="col-md-3" style="margin-top:15px;">
+   <div class="product-card hvr-underline-from-center">
+    <div class="cart-body" style="margin:5px;">
+     <img class="card-img-top" [src]="" alt="Card Image" />
+     <p><strong>{{product.productName}}</strong> <span style="float: right; margin-right: 10px;"><strong>Brand:
+       </strong>
+       {{product.brand}}</span></p>
+     <p class="card-text"> <strong>Category: </strong> {{product.category}}</p>
+     <p class="card-text"><strong> Price:
+      </strong>{{product.price
+      |
+      currency:'INR'}}</p>
+    </div>
+    <div class="row">
+     <div class="col">
+      <div><button class="btn btn-outline-info" style="float: right; margin:0 8px 8px 0;">Add
+        to cart</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>

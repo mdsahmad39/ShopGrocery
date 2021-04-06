@@ -1,0 +1,16 @@
+<div class="login-container">
+ <div class="login-block col-lg-4 offset-4 offset-md-4 offset-lg-4">
+  <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm.value)" novalidate>
+   <div class="input-container">
+    <input type="loginId" name="loginId" #password="ngModel" ngModel required minlength="4">
+    <label>Login ID</label>
+   </div>
+   <div class="input-container">
+    <input type="password" name="password" #loginId="ngModel" ngModel required minlength="4">
+    <label>Password</label>
+   </div>
+   <br>
+   <button class="btn btn-outline-success" [disabled]="!loginForm.valid">Login</button>
+  </form>
+ </div>
+</div>

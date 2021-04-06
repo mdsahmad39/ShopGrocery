@@ -1,0 +1,97 @@
+<div class="register-container">
+    <div class="register-block col-lg-6 offset-md-2 offset-lg-3">
+        <form #registerForm="ngForm" (ngSubmit)="submitRegisterForm(registerForm.value)" novalidate>
+            <p class="header">Customer Registration Page</p>
+            <br>
+            <div class="input-container">
+                <input type="text" name="firstName" #firstName="ngModel" ngModel required>
+                <label>First Name</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="lastName" #lastName="ngModel" ngModel required>
+                <label>Last Name</label>
+            </div>
+
+            <div class="input-container">
+                <input list="Gender" name="gender" id="gender" #gender="ngModel" style="width: 100px;" ngModel required>
+
+                <datalist id="Gender">
+                    <option value="MALE">
+                    <option value="FEMALE">
+                    <option value="OTHER">
+                </datalist>
+                <label>Gender</label>
+            </div>
+            <!-- <select class="form-select" name="gender" id="gender" #gender="ngModel" style="width: 100px;" ngModel required>
+<option value="male">MALE</option>
+<option value="female">FEMALE</option>
+<option value="other">OTHER</option>
+</select>-->
+
+            <div class="input-container">
+                <input type="text" name="houseNo" #houseNo="ngModel" ngModel required>
+                <label>House Number</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="street" #street="ngModel" ngModel required>
+                <label>Street</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="city" #city="ngModel" ngModel required>
+                <label>City</label>
+            </div>
+
+            <div class="input-container">
+                <input type="number" name="pincode" #pincode="ngModel" ngModel required>
+                <label>Pincode</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="state" #state="ngModel" ngModel required>
+                <label>State</label>
+            </div>
+
+            <div class="input-container">
+
+                <input list="Countries" name="country" id="country" #country="ngModel" style="width: 100px;" ngModel
+                    required>
+
+                <datalist id="Countries">
+                    <option value="{{country.name}}" *ngFor="let country of countriesList">{{country.name}}</option>
+                </datalist>
+                <label>Country</label>
+                <!--<select name="country" id="country" class="form-select" #country="ngModel" ngModel required>
+<option value="{{country.name}}" *ngFor="let country of countriesList">{{country.name}}</option>
+</select>-->
+            </div>
+
+
+            <div class="input-container">
+                <input type="text" name="emailId" #emailId="ngModel" ngModel required>
+                <label>Email Id</label>
+            </div>
+
+
+            <div class="input-container">
+                <input type="number" name="phoneNumber" #phoneNumber="ngModel" minlength="10" ngModel required>
+                <label>Phone Number</label>
+            </div>
+
+
+            <div class="input-container">
+                <input type="text" name="loginId" #loginId="ngModel" minlength="4" ngModel required>
+                <label>Login Id</label>
+            </div>
+
+            <div class="input-container">
+                <input type="password" name="password" #password="ngModel" ngModel required minlength="8">
+                <label>Password</label>
+            </div>
+
+            <button class="btn btn-success" [disabled]="!registerForm.valid">Register</button>
+        </form>
+    </div>
+</div>

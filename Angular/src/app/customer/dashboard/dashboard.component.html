@@ -1,0 +1,28 @@
+<div class="container">
+  <p class="title">Stores</p>
+  <div class="row store-container">
+    <div class="col-md-3" *ngFor="let store of storesList">
+      <div class="store-card">
+        <img class="card-img-top" src="http://localhost:8090//storeImage//{{store.fileName}}" alt="Card Image" />
+        <div class="cart-body">
+          <p class="store-title">{{store.storeName}}
+          </p>
+          <p class="card-text"><strong>Seller: </strong><span
+              style="text-transform: uppercase;">{{store.sellerName}}</span>
+          </p>
+          <p class="card-text"><strong>Address: </strong>{{store.address.houseNo}}, {{store.address.street}},
+            {{store.address.city}}-{{store.address.pincode}}, {{store.address.state}}.</p>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div><button class="btn btn-outline-info" style="float: right; margin-top: 8px;"
+                (click)="goToStore(store)">Go
+                To
+                store</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

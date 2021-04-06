@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-expand-lg navbar-white bg-white">
+  <a class="navbar-brand title" href="#">ShopGrocery <img
+      src="https://img.icons8.com/clouds/100/000000/mobile-shopping-bag.png" /></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="offset-lg-8">
+      <ul class="navbar-nav" style="margin-left: 20px;">
+        <li class="nav-item active" *ngIf="isSellerLoggedIn$ | async as isSellerLoggedIn">
+          <a class="nav-link" routerLink="dashboardSeller" style="margin-right: 25px;">Dashboard <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLink="profileSeller"
+            *ngIf="isSellerLoggedIn$ | async as isSellerLoggedIn" style="margin-right: 25px;">Profile</a>
+        </li>
+        <li class="nav-item active" *ngIf="isCustomerLoggedIn$ | async as isCustomerLoggedIn">
+          <a class="nav-link" routerLink="dashboardCustomer" style="margin-right: 25px;">Dashboard <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLink="profileCustomer"
+            *ngIf="isCustomerLoggedIn$ | async as isCustomerLoggedIn" style="margin-right: 25px;">Profile</a>
+        </li>
+        <li class="nav-item" *ngIf="isCustomerLoggedIn$ | async as isCustomerLoggedIn">
+          <a class="nav-link" (click)=onCustomerLogout() style="margin-right: 25px;cursor: pointer;">Logout</a>
+        </li>
+        <li class="nav-item" *ngIf="isSellerLoggedIn$ | async as isSellerLoggedIn">
+          <a class="nav-link" (click)=onSellerLogout() style="margin-right: 25px;cursor: pointer;">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<hr class="style-hr">

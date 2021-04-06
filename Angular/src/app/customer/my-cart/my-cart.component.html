@@ -1,0 +1,70 @@
+<!-- <div class="container">
+  <p class="title">Order Details</p>
+  <div class="card col-lg-8 offset-lg-2">
+    <div class="row" *ngFor="let product of cartProductsList">
+      <hr>
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+          <h4 class="card-title">{{product['productName']}}</h4>
+        </div>
+      </div>
+      <div class="col-md-2 card-text">
+        <br>
+        <div class="card-text"><i>Quantity:</i></div>
+        <form novalidate>
+          <input type="number" name="count" style="width: 80px;" value="1" min="1" max="100" [(ngModel)]="product.count"
+            required (click)="refresh(product)">
+        </form>
+      </div>
+      <div class="col-md-3 card-text">
+        <br>
+        <div class="card-text"><i>Price:</i> &nbsp;<span
+            style="font-size: 18px;">{{product['count']*product['price']}}</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2 offset-lg-8">
+    <div class="row">
+      <div class="card-text"><span class="sub-title">Total Price :</span><span
+          style="font-size: 22px;">{{totalPrice}}</span>
+      </div>
+      <button class="btn btn-outline-info" (click)="placeOrder()">Go to</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <p class="title">Order Details</p>
+  <div class="card col-lg-8 offset-lg-2">
+    <div class="row" style="margin-bottom: 15px;" *ngFor="let product of cartProductsList">
+      <hr>
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+          <h4 class="card-title">{{product['productName']}}</h4>
+        </div>
+      </div>
+      <div class="col-md-2 card-text">
+        <br>
+        <div class="card-text"><i>Quantity:</i></div>
+        <form novalidate>
+          <input type="number" name="count" style="width: 80px;" value="1" min="1" max="100" [(ngModel)]="product.count"
+            required (click)="refresh(product)">
+        </form>
+      </div>
+      <div class="col-md-3 card-text">
+        <br>
+        <div class="card-text"><i>Price:</i> &nbsp;<span
+            style="font-size: 18px;">{{product['count']*product['price']}}</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2 offset-lg-8">
+    <div class="row">
+      <div class="card-text"><span class="sub-title">Total Price :</span><span
+          style="font-size: 22px;">{{totalPrice}}</span>
+      </div>
+      <button class="btn btn-outline-info" (click)="placeOrder()">Checkout</button>
+    </div>
+  </div>
+  <br><br><br>
+</div>
